@@ -1,4 +1,4 @@
-# qar
+# Qar
 
 Qar is a recommendation engine for selecting your next car.  
 
