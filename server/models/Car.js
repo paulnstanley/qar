@@ -19,7 +19,9 @@ const CarSchema = new Schema({
   comfort: Number,
   totalCostOwnership: Number,
   swagger: Number,
-  technology: Number
+  technology: Number,
+  availableManual: Boolean,
+  comments: String
 });
 
 module.exports = mongoose.model('Car', CarSchema)

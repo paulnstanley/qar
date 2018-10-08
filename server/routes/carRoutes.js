@@ -27,7 +27,9 @@ carRouter.post('/api/cars/new', function (request, response) {
     comfort: request.body.comfort,
     totalCostOwnership: request.body.totalCostOwnership,
     swagger: request.body.swagger,
-    technology: request.body.technology
+    technology: request.body.technology,
+    availableManual: request.body.availableManual,
+    comments: request.body.comments
   }
   carData.AddNewCar(carModel);
   response.end(console.log('200: New car added.'));
