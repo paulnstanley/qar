@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const CarSchema = new Schema({
+  bodyStyle: String,
   make: String,
   model: String,
   minYear: Number,

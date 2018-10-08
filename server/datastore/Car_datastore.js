@@ -8,6 +8,7 @@ const GetAllCars = function () {
 
 const AddNewCar = function (carModel) {
   const car = new Car({
+    bodyStyle: carModel.bodyStyle,
     make: carModel.make,
     model: carModel.model,
     minYear: carModel.minYear,

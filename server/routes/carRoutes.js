@@ -10,6 +10,7 @@ carRouter.get('/api/cars/all', function (request, response) {
 
 carRouter.post('/api/cars/new', function (request, response) {
   let carModel = {
+    bodyStyle: request.body.bodyStyle,
     make: request.body.make,
     model: request.body.model,
     minYear: request.body.minYear,
