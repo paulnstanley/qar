@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const { URL } = require('url');
 
-const carData = require('./datastore/Car_datastore.js');
+const carData = require('../datastore/Car_datastore.js');
 const carRouter = require('express').Router();
 
 carRouter.get('/api/cars/all', function (request, response) {

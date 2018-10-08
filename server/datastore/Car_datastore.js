@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Car = require ('./models/Car.js');
+const Car = require ('../models/Car.js');
 
 const GetAllCars = function () {
   console.log('Returning all car objects.');
