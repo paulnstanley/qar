@@ -1,9 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
-const passport = require('passport');
 const keys = require('./config/keys');
 const bodyParser = require('body-parser');
+
+require('./models/Car');
 
 mongoose.connect(keys.mongoURI)
 
@@ -17,9 +18,14 @@ app.use(
     keys: [keys.cookieKey]
   })
 )
-app.use(passport.initialize())
-app.use(passport.session())
 
+//import routes
+const carRoutes = require('./routes/carRoutes')
+
+//use routes
+app.use(carRoutes)
+
+//logic to check if running in Heroku
 if (process.env.NODE_ENV === 'production') {
   // Express will serve up production assets
   // like our main.js file, or main.css file!
@@ -33,5 +39,6 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
+//since this app is specifically designed for Heroku, is this necessary?
 const PORT = process.env.PORT || 5000
 app.listen(PORT)
