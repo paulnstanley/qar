@@ -19,18 +19,15 @@ carRouter.post('/api/cars/new', function (request, response) {
     fuelOctane: request.body.fuelOctane,
     familySize: request.body.familySize,
     avgCost: request.body.avgCost,
-    //scoringAttributes are a range of 1-5, to be turned into a score
-    scoringAttributes: [
-      style:  request.body.scoringAttributes.style,
-      performance: request.body.scoringAttributes.performance,
-      reliability: request.body.scoringAttributes.reliability,
-      utility: request.body.scoringAttributes.utility,
-      resale: request.body.scoringAttributes.resale,
-      comfort: request.body.scoringAttributes.comfort,
-      totalCostOwnership: request.body.scoringAttributes.totalCostOwnership,
-      swagger: request.body.scoringAttributes.swagger,
-      technology: request.body.scoringAttributes.technology
-    ]
+    style: request.body.style,
+    performance: request.body.performance,
+    reliability: request.body.reliability,
+    utility: request.body.utility,
+    resale: request.body.resale,
+    comfort: request.body.comfort,
+    totalCostOwnership: request.body.totalCostOwnership,
+    swagger: request.body.swagger,
+    technology: request.body.technology
   }
   carData.AddNewCar(carModel);
   response.end(console.log('200: New car added.'));

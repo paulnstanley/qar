@@ -11,18 +11,15 @@ const CarSchema = new Schema({
   fuelOctane: Number,
   familySize: Number,
   avgCost: Number,
-  //scoringAttributes are a range of 1-5, to be turned into a score
-  scoringAttributes: [
-    style:  Number,
-    performance: Number,
-    reliability: Number,
-    utility: Number,
-    resale: Number,
-    comfort: Number,
-    totalCostOwnership: Number,
-    swagger: Number,
-    technology: Number
-  ]
+  style: Number,
+  performance: Number,
+  reliability: Number,
+  utility: Number,
+  resale: Number,
+  comfort: Number,
+  totalCostOwnership: Number,
+  swagger: Number,
+  technology: Number
 });
 
 module.exports = mongoose.model('Car', CarSchema)
