@@ -36,12 +36,9 @@ class App extends Component {
             <div className="col-md-8">
               <p/>
               <p className="App-intro">
-                New cars are expensive.  In 2018, the average new car and truck sale price was $36,270, and loan lengths are on average nearly six years.  Yikes!
+                New cars are expensive.  In 2018, the average new car and truck sale price was $36,270, with loans averaging six years.  Yikes!
 
                 How about a nice used car, instead?  Answer these questions to get a recommendation from a thoughtfully curated selection.
-
-                I'm a car enthusiast on a budget who has bought and sold 21 cars in 16 years.  I've written for a car blog, driven Laguna Seca and the Nordschleife,
-                and crammed my wife and kids into a Porsche 911 for weekend trips to Big Sur. 
                 </p>
               </div>
             <div className="col-md-2"></div>
