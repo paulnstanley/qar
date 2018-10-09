@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Select from 'react-select';
 import '../App.css';
 
@@ -14,21 +14,22 @@ const bodyStyle = [
 ]
 
 const reason = [
-  { value: 'cheaper', label: 'I want to save money' },
-  { value: 'nicer', label: 'I want to upgrade to something nicer but still reasonably priced' },
-  { value: 'nicest', label: 'I want to upgrade to something fancy and nearly new' },
-  { value: 'child', label: 'I need a larger car due to children or pets' },
+  { value: 'cheaper', label: 'I want to save money.' },
+  { value: 'nicer', label: 'I want to upgrade to something nicer but still reasonably priced.' },
+  { value: 'nicest', label: 'I want to upgrade to something fancy and nearly new.' },
   { value: 'different', label: `I'm ready for something completely different.` },
-  { value: 'clowncar', label: `My life is no longer my own because I have too many children.` }
+  { value: 'child', label: 'I need a larger car due to children or pets.' },
+  { value: 'clowncar', label: `I can't concentrate on this because of screaming children, just give me the minivan.` }
 ]
 
 const budget = [
-  { value: '10000', label: '$10,000' },
-  { value: '15000', label: '$15,000' },
-  { value: '20000', label: '$20,000' },
-  { value: '25000', label: '$25,000' },
-  { value: '30000', label: '$30,000' }
+  { value: 10000, label: '$10,000' },
+  { value: 15000, label: '$15,000' },
+  { value: 20000, label: '$20,000' },
+  { value: 25000, label: '$25,000' },
+  { value: 30000, label: '$30,000' }
 ]
+
 
 const passengers = [
   { value: 2, label: '1-2'},
@@ -73,63 +74,55 @@ const swagger = [
 
 class Questions extends React.Component {
 
-  state = [
-    {bodyStyle: null},
-    {reason: null},
-    {budget: null},
-    {passengers: null},
-    {commute: null},
-    {onlyCar: null},
-    {diy: null},
-    {manual: null},
-    {prius: null},
-    {swagger: null}
-  ]
+  state = {}
 
-  handleChange = (selectedOption) => {
-    this.setState({ selectedOption });
-    console.log('Option selected:', selectedOption)
+  handleChange = (property, val) => {
+    let updatedObject = {};
+    updatedObject[property] = val.value;
+    this.setState(updatedObject);
+    console.log('Option selected:', val.value);
   }
 
+  //do something with the submission now!
+  //enforce all questions being answered!
   handleSubmission = () => {
     console.log(this.state);
   }
 
   render() {
-    const { selectedOption } = this.state;
 
     return (
       <div className="Question-form">
         <b>What style of car do you drive now?</b>
-        <Select value={this.selectedOption}  onChange={this.handleChange} options={bodyStyle}/>
+        <Select value={this.selectedOption}  onChange={val => this.handleChange('bodyStyle', val)} options={bodyStyle} searchable={false}/>
         <p/>
         <b>Why are you shopping for a new car?</b>
-        <Select value={this.selectedOption}  onChange={this.handleChange} options={reason}/>
+        <Select value={this.selectedOption} onChange={val => this.handleChange('reason', val)} options={reason} searchable={false}/>
         <p/>
         <b>What is your budget?</b><br/>
         (Remember tax, registration, and budgeting for maintenance and repairs.)
-        <Select value={this.selectedOption}  onChange={this.handleChange} options={budget}/>
+        <Select value={this.selectedOption} onChange={val => this.handleChange('budget', val)} options={budget} searchable={false}/>
         <p/>
         <b>Including yourself, how many passengers need to be able ride in your car?</b>
-        <Select value={this.selectedOption}  onChange={this.handleChange} options={passengers}/>
+        <Select value={this.selectedOption} onChange={val => this.handleChange('passengers', val)} options={passengers} searchable={false}/>
         <p/>
         <b>How long is your round trip daily commute?</b>
-        <Select value={this.selectedOption}  onChange={this.handleChange} options={commute}/>
+        <Select value={this.selectedOption} onChange={val => this.handleChange('commute', val)} options={commute} searchable={false}/>
         <p/>
         <b>Will this be your only car?</b>
-        <Select value={this.selectedOption}  onChange={this.handleChange} options={onlyCar}/>
+        <Select value={this.selectedOption} onChange={val => this.handleChange('onlyCar', val)} options={onlyCar} searchable={false}/>
         <p/>
         <b>Do you like to do your own basic repairs and maintenance?</b>
-        <Select value={this.selectedOption}  onChange={this.handleChange} options={diy}/>
+        <Select value={this.selectedOption} onChange={val => this.handleChange('diy', val)} options={diy} searchable={false}/>
         <p/>
         <b>Do you prefer a manual transmission?</b>
-        <Select value={this.selectedOption}  onChange={this.handleChange} options={manual}/>
+        <Select value={this.selectedOption} onChange={val => this.handleChange('manual', val)} options={manual} searchable={false}/>
         <p/>
         <b>Be honest: do you really just want a Prius?</b>
-        <Select value={this.selectedOption}  onChange={this.handleChange} options={prius}/>
+        <Select value={this.selectedOption} onChange={val => this.handleChange('prius', val)} options={prius} searchable={false}/>
         <p/>
         <b>Finally, do you care what people think about your car?</b>
-        <Select value={this.selectedOption}  onChange={this.handleChange} options={swagger}/>
+        <Select value={this.selectedOption} onChange={val => this.handleChange('swagger', val)} options={swagger} searchable={false}/>
         <p/>
         <button onClick={this.handleSubmission} type="button" className="btn btn-primary">Submit</button>
       </div>
