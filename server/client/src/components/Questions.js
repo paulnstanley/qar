@@ -14,7 +14,7 @@ import '../App.css';
 //   }
 // }
 
-let Questions = React.createClass({
+class Questions extends Component {
   onChange(value) {
     console.log(value);
   },
@@ -61,6 +61,6 @@ let Questions = React.createClass({
       </div>
     );
   }
-});
+};
 
 export default Questions;
