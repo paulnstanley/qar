@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Dropdown from 'react-dropdown'
+import Select from 'react-select';
 import '../App.css';
-import 'react-dropdown/style.css'
 
 const bodyStyle = [
   { value: 'sedan', label: 'Sedan' },
@@ -14,43 +13,39 @@ const bodyStyle = [
   { value: 'electric', label: 'Electric or Hybrid' }
 ]
 
-class Questions extends Component {
+const budget = [
+  { value: '10000', label: '$10,000' },
+  { value: '15000', label: '$15,000' },
+  { value: '20000', label: '$20,000' },
+  { value: '25000', label: '$25,000' },
+  { value: '30000', label: '$30,000' }
+]
+
+class Questions extends React.Component {
+
+  state = {
+    selectedOption: null,
+  }
+
+  handleChange = (selectedOption) => {
+    this.setState({ selectedOption });
+    console.log(`Option selected:`, selectedOption)
+  }
+
   render() {
+    const { selectedOption } = this.state;
+
     return (
       <div className="Question-form">
-          <h4>What style of car do you drive now?</h4>
-        <Dropdown options={bodyStyle} onChange={this._onSelect} placeholder="Make a selection" />
+        <h4>What style of car do you drive now?</h4>
+        <Select value={this.selectedOption}  onChange={this.handleChange} options={bodyStyle}/>
+        <p/>
+        <h4>What is your budget?</h4>
+        (Consider tax, registration, and budgeting for maintenance and repairs.)
+        <Select value={this.selectedOption}  onChange={this.handleChange} options={budget}/>
       </div>
-    )
+    );
   }
 }
-
-// class Questions extends Component {
-//   constructor() {
-//     super()
-//   }
-//
-//   onChange(value) {
-//     console.log(value);
-//   };
-//
-//   render() {
-//     return (
-//       <div>
-//         <h4>What style of car do you drive now?</h4>
-//         <RadioGroup onChange={ this.onChange } horizontal>
-//           <RadioButton value="sedan">Sedan</RadioButton>
-//           <RadioButton value="hatchback">Hatchback</RadioButton>
-//           <RadioButton value="coupe">Coupe</RadioButton>
-//           <RadioButton value="truck">Truck</RadioButton>
-//           <RadioButton value="minivan">Minivan</RadioButton>
-//           <RadioButton value="crossover">Crossover or SUV</RadioButton>
-//           <RadioButton value="wagon">Station Wagon</RadioButton>
-//           <RadioButton value="electric">Electric or Hybrid</RadioButton>
-//         </RadioGroup>
-//       </div>
-//     );
-//   }
-// };
 
 export default Questions;
