@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { RadioGroup, RadioButton, ReversedRadioButton } from 'react-radio-buttons';
+import { RadioGroup, RadioButton } from 'react-radio-buttons';
 import '../App.css';
 
 // class Questions extends Component {
@@ -15,49 +15,28 @@ import '../App.css';
 // }
 
 class Questions extends Component {
+  constructor() {
+    super()
+  }
+
   onChange(value) {
     console.log(value);
-  },
+  };
+
   render() {
     return (
-      <div style={ { padding: 16 } }>
-        <h4>Vertical Radio Buttons</h4>
-        <RadioGroup onChange={ this.onChange }>
-          <RadioButton value="apple">
-            Apple
-          </RadioButton>
-          <RadioButton value="orange">
-            Orange
-          </RadioButton>
-          <ReversedRadioButton value="melon">
-            Melon
-          </ReversedRadioButton>
-        </RadioGroup>
-        <h4 style={ { marginTop: 32 } }>Horizontal Radio Buttons</h4>
+      <div>
+        <h4>What style of car do you drive now?</h4>
         <RadioGroup onChange={ this.onChange } horizontal>
-          <RadioButton value="apple">
-            Apple
-          </RadioButton>
-          <RadioButton value="orange">
-            Orange
-          </RadioButton>
-          <ReversedRadioButton value="melon">
-            Melon
-          </ReversedRadioButton>
+          <RadioButton value="sedan">Sedan</RadioButton>
+          <RadioButton value="hatchback">Hatchback</RadioButton>
+          <RadioButton value="coupe">Coupe</RadioButton>
+          <RadioButton value="truck">Truck</RadioButton>
+          <RadioButton value="minivan">Minivan</RadioButton>
+          <RadioButton value="crossover">Crossover or SUV</RadioButton>
+          <RadioButton value="wagon">Station Wagon</RadioButton>
+          <RadioButton value="electric">Electric or Hybrid</RadioButton>
         </RadioGroup>
-        <h4 style={ { marginTop: 32 } }>1st option disabled (prevents onChange callback and style overwrite to look disabled)</h4>
-        <RadioGroup onChange={ this.onChange }>
-          <RadioButton value="apple" disabled={true} disabledColor={'green'}>
-            Apple
-          </RadioButton>
-          <RadioButton value="orange">
-            Orange
-          </RadioButton>
-          <RadioButton value="melon">
-            Melon
-          </RadioButton>
-        </RadioGroup>
-        <h4>Check console to see the value of the RadioGroup via the onChange callback</h4>
       </div>
     );
   }
