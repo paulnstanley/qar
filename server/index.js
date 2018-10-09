@@ -39,6 +39,6 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-//since this app is specifically designed for Heroku, is this necessary?
+//since this app is specifically designed for Heroku, I think the '|| 5000' is irrelevant.
 const PORT = process.env.PORT || 5000
 app.listen(PORT)
