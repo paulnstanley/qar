@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './QarLogo.png';
 import Questions from './components/Questions.js';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 
 class App extends Component {
@@ -32,7 +33,7 @@ class App extends Component {
         <p className="App-intro">
           New cars are expensive.  In 2018, the average new car and truck sale price was $36,270, and loan lengths are on average nearly six years.  Yikes!
           How about a nice used car, instead?  Answer these questions to get a recommendation from a thoughfully curated selection.
-          I'm a car enthusiast on a budget who has bought and sold 21 cars in 16 years, from beater Mitsubishis to BMWs and Porsches.
+          I'm a car enthusiast on a budget who has bought and sold 21 cars in 16 years.
         </p>
         <div className="container">
           <div className="row">
