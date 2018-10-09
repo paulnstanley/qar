@@ -94,35 +94,35 @@ class Questions extends React.Component {
     return (
       <div className="Question-form">
         <b>What style of car do you drive now?</b>
-        <Select value={this.selectedOption}  onChange={val => this.handleChange('bodyStyle', val)} options={bodyStyle} searchable={false}/>
+        <Select value={this.selectedOption}  onChange={val => this.handleChange('bodyStyle', val)} options={bodyStyle} isSearchable={false}/>
         <p/>
         <b>Why are you shopping for a new car?</b>
-        <Select value={this.selectedOption} onChange={val => this.handleChange('reason', val)} options={reason} searchable={false}/>
+        <Select value={this.selectedOption} onChange={val => this.handleChange('reason', val)} options={reason} isSearchable={false}/>
         <p/>
         <b>What is your budget?</b><br/>
         (Remember tax, registration, and budgeting for maintenance and repairs.)
-        <Select value={this.selectedOption} onChange={val => this.handleChange('budget', val)} options={budget} searchable={false}/>
+        <Select value={this.selectedOption} onChange={val => this.handleChange('budget', val)} options={budget} isSearchable={false}/>
         <p/>
         <b>Including yourself, how many passengers need to be able ride in your car?</b>
-        <Select value={this.selectedOption} onChange={val => this.handleChange('passengers', val)} options={passengers} searchable={false}/>
+        <Select value={this.selectedOption} onChange={val => this.handleChange('passengers', val)} options={passengers} isSearchable={false}/>
         <p/>
         <b>How long is your round trip daily commute?</b>
-        <Select value={this.selectedOption} onChange={val => this.handleChange('commute', val)} options={commute} searchable={false}/>
+        <Select value={this.selectedOption} onChange={val => this.handleChange('commute', val)} options={commute} isSearchable={false}/>
         <p/>
         <b>Will this be your only car?</b>
-        <Select value={this.selectedOption} onChange={val => this.handleChange('onlyCar', val)} options={onlyCar} searchable={false}/>
+        <Select value={this.selectedOption} onChange={val => this.handleChange('onlyCar', val)} options={onlyCar} isSearchable={false}/>
         <p/>
         <b>Do you like to do your own basic repairs and maintenance?</b>
-        <Select value={this.selectedOption} onChange={val => this.handleChange('diy', val)} options={diy} searchable={false}/>
+        <Select value={this.selectedOption} onChange={val => this.handleChange('diy', val)} options={diy} isSearchable={false}/>
         <p/>
         <b>Do you prefer a manual transmission?</b>
-        <Select value={this.selectedOption} onChange={val => this.handleChange('manual', val)} options={manual} searchable={false}/>
+        <Select value={this.selectedOption} onChange={val => this.handleChange('manual', val)} options={manual} isSearchable={false}/>
         <p/>
         <b>Be honest: do you really just want a Prius?</b>
-        <Select value={this.selectedOption} onChange={val => this.handleChange('prius', val)} options={prius} searchable={false}/>
+        <Select value={this.selectedOption} onChange={val => this.handleChange('prius', val)} options={prius} isSearchable={false}/>
         <p/>
         <b>Finally, do you care what people think about your car?</b>
-        <Select value={this.selectedOption} onChange={val => this.handleChange('swagger', val)} options={swagger} searchable={false}/>
+        <Select value={this.selectedOption} onChange={val => this.handleChange('swagger', val)} options={swagger} isSearchable={false}/>
         <p/>
         <button onClick={this.handleSubmission} type="button" className="btn btn-primary">Submit</button>
       </div>
