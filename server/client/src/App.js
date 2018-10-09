@@ -20,21 +20,31 @@ class App extends Component {
         <header className="App-header">
         <div className="container">
           <div className="row">
-            <div className="col-md-3">
+            <div className="col-md-2">
               <img src={logo} className="App-logo" alt="logo" />
               </div>
-            <div className="col-md-6">
+            <div className="col-md-8">
               <h1 className="App-title">Qar</h1>
               </div>
-            <div className="col-md-3"></div>
+            <div className="col-md-2"></div>
           </div>
         </div>
         </header>
-        <p className="App-intro">
-          New cars are expensive.  In 2018, the average new car and truck sale price was $36,270, and loan lengths are on average nearly six years.  Yikes!
-          How about a nice used car, instead?  Answer these questions to get a recommendation from a thoughfully curated selection.
-          I'm a car enthusiast on a budget who has bought and sold 21 cars in 16 years.
-        </p>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-2"></div>
+            <div className="col-md-8">
+              <p className="App-intro">
+                New cars are expensive.  In 2018, the average new car and truck sale price was $36,270, and loan lengths are on average nearly six years.  Yikes!
+
+                How about a nice used car, instead?  Answer these questions to get a recommendation from a thoughfully curated selection.
+                
+                I'm a car enthusiast on a budget who has bought and sold 21 cars in 16 years.
+                </p>
+              </div>
+            <div className="col-md-2"></div>
+          </div>
+        </div>
         <div className="container">
           <div className="row">
             <div className="col-md-2"></div>
