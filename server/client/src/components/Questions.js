@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { RadioGroup, RadioButton } from 'react-radio-buttons';
+import { RadioGroup, RadioButton, ReversedRadioButton } from 'react-radio-buttons';
 import '../App.css';
 
 // class Questions extends Component {
@@ -14,7 +14,7 @@ import '../App.css';
 //   }
 // }
 
-let App = React.createClass({
+let Questions = React.createClass({
   onChange(value) {
     console.log(value);
   },
