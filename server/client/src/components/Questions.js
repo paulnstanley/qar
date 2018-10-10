@@ -80,13 +80,13 @@ class Questions extends React.Component {
     let updatedObject = {};
     updatedObject[property] = val.value;
     this.setState(updatedObject);
-    console.log('Option selected:', val.value);
   }
 
-  //do something with the submission now!
-  //enforce all questions being answered!
+  //send the submission to app.js via props
+  //todo: enforce all questions being answered!
   handleSubmission = () => {
-    console.log(this.state);
+    const currentState = this.state;
+    this.props.getAnswers(currentState);
   }
 
   render() {

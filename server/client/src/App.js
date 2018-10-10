@@ -12,6 +12,12 @@ class App extends Component {
       answers: [],
       database: []
     }
+
+    this.getAnswers = this.getAnswers.bind(this)
+  }
+
+  getAnswers(submission) {
+    this.setState({answers: this.state.answers.concat([submission])}, () => console.log('You submitted: ', this.state.answers));
   }
 
   render() {
@@ -48,7 +54,7 @@ class App extends Component {
           <div className="row">
             <div className="col-md-2"></div>
             <div className="col-md-8">
-              <Questions />
+              <Questions getAnswers={this.getAnswers}/>
               </div>
             <div className="col-md-2"></div>
           </div>
