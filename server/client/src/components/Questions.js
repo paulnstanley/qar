@@ -84,6 +84,7 @@ class Questions extends React.Component {
 
   //send the submission to app.js via props
   //todo: enforce all questions being answered!
+  //todo: have this event also fire off the match logic, but be wary about state
   handleSubmission = () => {
     const currentState = this.state;
     this.props.getAnswers(currentState);

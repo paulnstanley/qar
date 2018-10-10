@@ -19,11 +19,11 @@ class App extends Component {
   }
 
   getAnswers(submission) {
-    this.setState({answers: this.state.answers.concat([submission])}, () => console.log('You submitted: ', this.state.answers));
+    this.setState({answers: this.state.answers.concat([submission])}, () => console.log('Answers submitted.'));
   }
 
   getCarData(response) {
-    this.setState({database: this.state.database.concat([response])}, () => console.log('Database returned: ', this.state.database));
+    this.setState({database: this.state.database.concat([response])}, () => console.log('Database returned: ', this.state.database[0].statusText));
   }
 
   render() {
