@@ -3,32 +3,34 @@ import axios from 'axios';
 import '../App.css';
 
 class CarData extends React.Component {
+  constructor() {
+    super()
 
-  state = {}
+    this.databaseCall = this.databaseCall.bind(this)
+  }
 
-  carDataButtonClick = () => {
-    console.log('click');
-
+  databaseCall = () => {
     let rootUrl = 'https://qar-project.herokuapp.com'
     let apiCall = '/api/cars/all'
     let fullUrl = rootUrl + apiCall
+    let props = this.props
 
-    const request = axios.get(fullUrl)
+    axios.get(fullUrl)
       .then(function (response) {
-        console.log(response)
+        props.getCarData(response);
       })
   }
 
-  render() {
+  componentDidMount() {
+    window.addEventListener('load', this.databaseCall);
+  }
 
+  render() {
     return (
       <div>
-        <button onClick={this.carDataButtonClick} type="button" className="btn btn-primary">Get Car Data</button>
       </div>
     )
-
   }
 }
-
 
 export default CarData;
