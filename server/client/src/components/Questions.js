@@ -125,6 +125,7 @@ class Questions extends React.Component {
         <Select value={this.selectedOption} onChange={val => this.handleChange('swagger', val)} options={swagger} isSearchable={false}/>
         <p/>
         <button onClick={this.handleSubmission} type="button" className="btn btn-primary">Submit</button>
+        <p/>
       </div>
     );
   }

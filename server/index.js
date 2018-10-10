@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const keys = require('./config/keys');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 require('./models/Car');
 
@@ -11,6 +12,7 @@ mongoose.connect(keys.mongoURI)
 const app = express()
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use(
   cookieSession({

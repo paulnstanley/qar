@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './QarLogo.png';
 import Questions from './components/Questions.js';
+import CarData from './components/CarData.js';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 
@@ -14,10 +15,15 @@ class App extends Component {
     }
 
     this.getAnswers = this.getAnswers.bind(this)
+    this.getCarData = this.getCarData.bind(this)
   }
 
   getAnswers(submission) {
     this.setState({answers: this.state.answers.concat([submission])}, () => console.log('You submitted: ', this.state.answers));
+  }
+
+  getCarData(response) {
+    this.setState({database: this.state.database.concat([response])}, () => console.log('Database returned: ', this.state.database));
   }
 
   render() {
@@ -36,6 +42,8 @@ class App extends Component {
           </div>
         </div>
         </header>
+        <p/>
+        <CarData getCarData={this.getCarData}/>
         <div className="container">
           <div className="row">
             <div className="col-md-2"></div>
