@@ -13,9 +13,9 @@ const MatchCar = function (query) {
   }, function(err, result) {
   		if (err) throw err;
   		if (result) {
-  			res.json(result)
+  			response.json(result)
   		} else {
-  			res.send(JSON.stringify({
+  			response.send(JSON.stringify({
   				error : 'Error'
 			}))
 		}
