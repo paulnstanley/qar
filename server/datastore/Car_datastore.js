@@ -41,6 +41,6 @@ const AddNewCar = function (carModel) {
 
 module.exports = {
   GetAllCars,
-  AddNewCar
+  AddNewCar,
   MatchCar
 }
