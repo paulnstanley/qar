@@ -6,9 +6,11 @@ const GetAllCars = function () {
   return Car.find({}).exec();
 }
 
-const MatchCar = function () {
+const MatchCar = function (match) {
   console.log('200: Finding matching car.');
-  return Car.findOne({}).exec();
+  return Car.find({
+    'make': match
+  }).exec();
 }
 
 const AddNewCar = function (carModel) {
