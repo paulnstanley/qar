@@ -4,6 +4,7 @@ import Questions from './components/Questions.js';
 import CarData from './components/CarData.js';
 import Match from './components/Match.js'
 import RecPage from './components/RecPage.js'
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 
@@ -21,18 +22,29 @@ class App extends Component {
     this.getResults = this.getResults.bind(this)
   }
 
+//replace hardcoded query with 'submission'
   getAnswers(submission) {
-    this.setState({answers: this.state.answers.concat([submission])}, () => {
+    this.setState({answers: this.state.answers.concat(['Acura'])}, () => {
       console.log('Answers submitted.');
       // console.log('Answers submitted: ', this.state.answers);
-      this.matchUserToCar();
+      this.matchUserToCar(this.state.answers[0]);
     })
   }
 
-  matchUserToCar() {
-    console.log('Beginning match with: ', this.state.answers);
-    //do match/query
-    //populate this.state.results
+  matchUserToCar(query) {
+    console.log('Beginning match with: ', query);
+
+    let self = this
+    let rootUrl = 'https://qar-project.herokuapp.com'
+    let apiUrl = '/api/cars/'
+    let fullUrl = rootUrl + apiUrl + query
+
+    axios.get(fullUrl)
+      .then(function (response) {
+        self.setState({results: self.state.results.concat([response])}, () => {
+          console.log(self.state.results[0].data[0]);
+        })
+      })
   }
 
   getResults(matchResults){
