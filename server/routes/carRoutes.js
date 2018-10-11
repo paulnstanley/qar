@@ -8,9 +8,9 @@ carRouter.get('/api/cars/all', function (request, response) {
   carData.GetAllCars().then(foundCars => response.json(foundCars));
 })
 
-carRouter.get('/api/cars/:match', function (request, response) {
-  let match = req.params.match;
-  
+carRouter.get('/api/cars/:query', function (request, response) {
+  let query = request.params.query;
+
   carData.MatchCar(match).then(foundMatch => response.json(foundMatch));
 })
 
