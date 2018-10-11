@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cookieSession = require('cookie-session');
 const keys = require('./config/keys');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -13,13 +12,6 @@ const app = express()
 
 app.use(bodyParser.json());
 app.use(cors());
-
-app.use(
-  cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey]
-  })
-)
 
 //import routes
 const carRoutes = require('./routes/carRoutes')

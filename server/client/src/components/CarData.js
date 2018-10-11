@@ -1,3 +1,5 @@
+//This component is potentially irrelevant if I'm doing server-side querying
+
 import React from 'react';
 import axios from 'axios';
 
@@ -20,9 +22,11 @@ class CarData extends React.Component {
       })
   }
 
-  componentDidMount() {
-    window.addEventListener('load', this.databaseCall);
-  }
+  // disabling this component from auto-running
+  //
+  // componentDidMount() {
+  //   window.addEventListener('load', this.databaseCall);
+  // }
 
   render() {
     return (
