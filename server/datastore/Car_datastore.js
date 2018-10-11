@@ -6,7 +6,7 @@ const GetAllCars = function () {
   return Car.find({}).exec();
 }
 
-const MatchCar = function (query) {
+const MatchCar = function (query, request, response) {
   console.log('200: Finding matching car.');
   return Car.find({
     'make': query
