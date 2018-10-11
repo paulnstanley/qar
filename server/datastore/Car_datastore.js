@@ -6,6 +6,11 @@ const GetAllCars = function () {
   return Car.find({}).exec();
 }
 
+const MatchCar = function () {
+  console.log('200: Finding matching car.');
+  return Car.findOne({}).exec();
+}
+
 const AddNewCar = function (carModel) {
   const car = new Car({
     bodyStyle: carModel.bodyStyle,
@@ -37,4 +42,5 @@ const AddNewCar = function (carModel) {
 module.exports = {
   GetAllCars,
   AddNewCar
+  MatchCar
 }

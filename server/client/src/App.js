@@ -17,28 +17,31 @@ class App extends Component {
     }
 
     this.getAnswers = this.getAnswers.bind(this)
+    this.matchUserToCar = this.matchUserToCar.bind(this)
     this.getResults = this.getResults.bind(this)
-    // this.getCarData = this.getCarData.bind(this)
   }
 
   getAnswers(submission) {
     this.setState({answers: this.state.answers.concat([submission])}, () => {
-      // console.log('Answers submitted.');
-      console.log('Answers submitted: ', this.state.answers);
+      console.log('Answers submitted.');
+      // console.log('Answers submitted: ', this.state.answers);
+      this.matchUserToCar();
     })
-    //within callback, invoke matchLogic inside Match.js? or here?
-    //then have match logic populate this.state.results
-    //then render a new page with the results
   }
 
-  //disabling this -- do querying server-side instead
-  // getCarData(response) {
-  //   this.setState({database: this.state.database.concat([response])}, () => console.log('Database request: ', this.state.database[0].statusText));
-  // }
+  matchUserToCar() {
+    console.log('Beginning match with: ', this.state.answers);
+    //do match/query
+    //populate this.state.results
+  }
 
   getResults(matchResults){
-    this.setState({results: this.state.results.concat([matchResults])}, () => console.log('Results in state: ', this.state.results));
+    this.setState({results: this.state.results.concat([matchResults])}, () => {
+      console.log('Results in state: ', this.state.results);
+    //render a new page with the results conditionally when this.state.results updates
+    })
   }
+
 
   render() {
     return (
