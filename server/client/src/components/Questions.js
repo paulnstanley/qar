@@ -93,40 +93,54 @@ class Questions extends React.Component {
   render() {
 
     return (
-      <div ref="questions" className="Question-form">
-        <b>What style of car do you drive now?</b>
-        <Select value={this.selectedOption}  onChange={val => this.handleChange('bodyStyle', val)} options={bodyStyle} isSearchable={false}/>
-        <p/>
-        <b>Why are you shopping for a new car?</b>
-        <Select value={this.selectedOption} onChange={val => this.handleChange('reason', val)} options={reason} isSearchable={false}/>
-        <p/>
-        <b>What is your budget?</b><br/>
-        (Remember tax, registration, and budgeting for maintenance and repairs.)
-        <Select value={this.selectedOption} onChange={val => this.handleChange('budget', val)} options={budget} isSearchable={false}/>
-        <p/>
-        <b>Including yourself, how many passengers need to be able ride in your car?</b>
-        <Select value={this.selectedOption} onChange={val => this.handleChange('passengers', val)} options={passengers} isSearchable={false}/>
-        <p/>
-        <b>How long is your round trip daily commute?</b>
-        <Select value={this.selectedOption} onChange={val => this.handleChange('commute', val)} options={commute} isSearchable={false}/>
-        <p/>
-        <b>Will this be your only car?</b>
-        <Select value={this.selectedOption} onChange={val => this.handleChange('onlyCar', val)} options={onlyCar} isSearchable={false}/>
-        <p/>
-        <b>Do you like to do your own basic repairs and maintenance?</b>
-        <Select value={this.selectedOption} onChange={val => this.handleChange('diy', val)} options={diy} isSearchable={false}/>
-        <p/>
-        <b>Do you prefer a manual transmission?</b>
-        <Select value={this.selectedOption} onChange={val => this.handleChange('manual', val)} options={manual} isSearchable={false}/>
-        <p/>
-        <b>Be honest: do you really just want a Prius?</b>
-        <Select value={this.selectedOption} onChange={val => this.handleChange('prius', val)} options={prius} isSearchable={false}/>
-        <p/>
-        <b>Finally, do you care what people think about your car?</b>
-        <Select value={this.selectedOption} onChange={val => this.handleChange('swagger', val)} options={swagger} isSearchable={false}/>
-        <p/>
-        <button onClick={this.handleSubmission} type="button" className="btn btn-primary">Submit</button>
-        <p/>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-2"></div>
+            <div className="col-md-8">
+            <p/>
+            <p className="App-intro">
+              New cars are expensive.  In 2018, the average new car and truck sale price was $36,270, with loans averaging six years.  Yikes!
+
+              How about a nice used car, instead?  Answer these questions to get a recommendation from a thoughtfully curated selection.
+              </p>
+              <div ref="questions" className="Question-form">
+                <b>What style of car do you drive now?</b>
+                <Select value={this.selectedOption}  onChange={val => this.handleChange('bodyStyle', val)} options={bodyStyle} isSearchable={false}/>
+                <p/>
+                <b>Why are you shopping for a new car?</b>
+                <Select value={this.selectedOption} onChange={val => this.handleChange('reason', val)} options={reason} isSearchable={false}/>
+                <p/>
+                <b>What is your budget?</b><br/>
+                (Remember tax, registration, and budgeting for maintenance and repairs.)
+                <Select value={this.selectedOption} onChange={val => this.handleChange('budget', val)} options={budget} isSearchable={false}/>
+                <p/>
+                <b>Including yourself, how many passengers need to be able ride in your car?</b>
+                <Select value={this.selectedOption} onChange={val => this.handleChange('passengers', val)} options={passengers} isSearchable={false}/>
+                <p/>
+                <b>How long is your round trip daily commute?</b>
+                <Select value={this.selectedOption} onChange={val => this.handleChange('commute', val)} options={commute} isSearchable={false}/>
+                <p/>
+                <b>Will this be your only car?</b>
+                <Select value={this.selectedOption} onChange={val => this.handleChange('onlyCar', val)} options={onlyCar} isSearchable={false}/>
+                <p/>
+                <b>Do you like to do your own basic repairs and maintenance?</b>
+                <Select value={this.selectedOption} onChange={val => this.handleChange('diy', val)} options={diy} isSearchable={false}/>
+                <p/>
+                <b>Do you prefer a manual transmission?</b>
+                <Select value={this.selectedOption} onChange={val => this.handleChange('manual', val)} options={manual} isSearchable={false}/>
+                <p/>
+                <b>Be honest: do you really just want a Prius?</b>
+                <Select value={this.selectedOption} onChange={val => this.handleChange('prius', val)} options={prius} isSearchable={false}/>
+                <p/>
+                <b>Finally, do you care what people think about your car?</b>
+                <Select value={this.selectedOption} onChange={val => this.handleChange('swagger', val)} options={swagger} isSearchable={false}/>
+                <p/>
+                <button onClick={this.handleSubmission} type="button" className="btn btn-primary">Submit</button>
+                <p/>
+                </div>
+                <div className="col-md-2"></div>
+              </div>
+            </div>
       </div>
     );
   }

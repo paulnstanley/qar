@@ -70,25 +70,8 @@ class App extends Component {
           </div>
         </div>
         </header>
-        <p/>
         <div className="container">
           <div className="row">
-            <div className="col-md-2"></div>
-            <div className="col-md-8">
-              <p/>
-              <p className="App-intro">
-                New cars are expensive.  In 2018, the average new car and truck sale price was $36,270, with loans averaging six years.  Yikes!
-
-                How about a nice used car, instead?  Answer these questions to get a recommendation from a thoughtfully curated selection.
-                </p>
-              </div>
-            <div className="col-md-2"></div>
-          </div>
-        </div>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-2"></div>
-            <div className="col-md-8">
             <Switch>
               <Route exact path='/' render={() => (
                 <Questions getAnswers={this.getAnswers} props={this.props}/>
@@ -98,10 +81,8 @@ class App extends Component {
                   )}/>
             </Switch>
             </div>
-            <div className="col-md-2"></div>
           </div>
         </div>
-      </div>
     );
   }
 }
