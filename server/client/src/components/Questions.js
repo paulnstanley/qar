@@ -1,4 +1,5 @@
 import React from 'react';
+import {Route} from 'react-router-dom';
 import Select from 'react-select';
 import '../App.css';
 
@@ -76,21 +77,18 @@ class Questions extends React.Component {
 
   state = {}
 
+  //each drop down uses this function to setState the user's selection
   handleChange = (property, val) => {
     let updatedObject = {};
     updatedObject[property] = val.value;
     this.setState(updatedObject);
   }
 
-  //send the submission to app.js via props
-  //todo: enforce all questions being answered!
-  //todo: have this event also fire off the match logic, but be wary about state
+  //sends state (all dropdown selections) to app.js via props
   handleSubmission = () => {
     const currentState = this.state;
     this.props.getAnswers(currentState);
     }
-
-  //TODO add an unmount lifecycle to remove the questions after submission
 
   render() {
 

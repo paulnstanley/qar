@@ -20,8 +20,9 @@ class App extends Component {
 
     this.getAnswers = this.getAnswers.bind(this)
     this.matchUserToCar = this.matchUserToCar.bind(this)
-    this.getResults = this.getResults.bind(this)
-    this.showResults = this.showResults.bind(this)
+    this.getCar = this.getCar.bind(this)
+    // this.getResults = this.getResults.bind(this)
+    // this.showResults = this.showResults.bind(this)
   }
 
 //replace hardcoded query with 'submission'
@@ -36,40 +37,23 @@ class App extends Component {
   matchUserToCar(query) {
     console.log('Beginning match with: ', query);
 
-    let self = this
     let rootUrl = 'https://qar-project.herokuapp.com'
     let apiUrl = '/api/cars/'
     let fullUrl = rootUrl + apiUrl + query
 
+    this.getCar(fullUrl);
+  }
+
+
+  getCar(fullUrl) {
     axios.get(fullUrl)
-      .then(function (response) {
-        self.setState({results: self.state.results.concat([response])}, () => {
-          return (
-            <div>
-              Results:
-              <h1>{self.state.results[0].data[0]}</h1>
-            </div>
-          )
-          // self.getResults(self.state.results]);
-        })
+      .then((response) => {
+        this.setState({results: this.state.results.concat([response])}, () => {
+          const results = this.state.results[0].data[0];
+          console.log(results);
+          return results;
       })
-  }
-
-  getResults(matchResults){
-    this.setState({results: this.state.results.concat([matchResults])}, () => {
-      this.showResults(this.state.results[0].data[0]);
-    //render a new page with the results conditionally when this.state.results updates
     })
-  }
-
-    // {JSON.stringify(this.state.results)}
-  showResults() {
-    return (
-      <div>
-        showResults:
-        <h1>{this.state.results[0].data[0]}</h1>
-      </div>
-    )
   }
 
   render() {
@@ -109,10 +93,10 @@ class App extends Component {
             <div className="col-md-8">
             <Switch>
               <Route exact path='/' render={() => (
-                <Questions getAnswers={this.getAnswers}/>
+                <Questions getAnswers={this.getAnswers} props={this.props}/>
                   )}/>
-              <Route exact path='/results' render={() => (
-                <RecPage showResults={this.showResults} props={this.props} state={this.props.state}/>
+              <Route path='/results' render={() => (
+                <RecPage props={this.props}/>
                   )}/>
             </Switch>
             </div>

@@ -1,31 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class RecPage extends Component {
-  constructor() {
-    super()
+const RecPage = (props) => (
+  <div>
+    <h1>RecPage stateless component</h1>
+    <h2>{JSON.stringify(props.results)}</h2>
+  </div>
+)
 
-    // console.log(this.props);
-    console.log(this.showResults);
-
-    this.buildResults = this.buildResults.bind(this)
-  }
-
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return this.state !== nextState;
-  // }
-
-  buildResults = () => {
-    console.log('invoked buildResults')
-  }
-
-  render() {
-    return (
-      <div>
-        Results:
-        <h1>{this.results}</h1>
-      </div>
-    )
-  }
-}
+// class RecPage extends Component {
+//   constructor() {
+//     super()
+//
+//   }
+//
+//
+//
+// render() {
+//     return (
+//       <div>
+//         Results:
+//         <h1>{JSON.stringify(this.props.state)}</h1>
+//       </div>
+//     )
+//   }
+// }
 
 export default RecPage;
