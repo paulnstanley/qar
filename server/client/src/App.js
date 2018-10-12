@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom'
+import axios from 'axios';
 import logo from './QarLogo.png';
 import Questions from './components/Questions.js';
-import CarData from './components/CarData.js';
-import Match from './components/Match.js'
 import RecPage from './components/RecPage.js'
-import axios from 'axios';
+// import CarData from './components/CarData.js';
+// import Match from './components/Match.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 
@@ -20,6 +21,7 @@ class App extends Component {
     this.getAnswers = this.getAnswers.bind(this)
     this.matchUserToCar = this.matchUserToCar.bind(this)
     this.getResults = this.getResults.bind(this)
+    this.showResults = this.showResults.bind(this)
   }
 
 //replace hardcoded query with 'submission'
@@ -42,18 +44,33 @@ class App extends Component {
     axios.get(fullUrl)
       .then(function (response) {
         self.setState({results: self.state.results.concat([response])}, () => {
-          console.log(self.state.results[0].data[0]);
+          return (
+            <div>
+              Results:
+              <h1>{self.state.results[0].data[0]}</h1>
+            </div>
+          )
+          // self.getResults(self.state.results]);
         })
       })
   }
 
   getResults(matchResults){
     this.setState({results: this.state.results.concat([matchResults])}, () => {
-      console.log('Results in state: ', this.state.results);
+      this.showResults(this.state.results[0].data[0]);
     //render a new page with the results conditionally when this.state.results updates
     })
   }
 
+    // {JSON.stringify(this.state.results)}
+  showResults() {
+    return (
+      <div>
+        showResults:
+        <h1>{this.state.results[0].data[0]}</h1>
+      </div>
+    )
+  }
 
   render() {
     return (
@@ -72,7 +89,6 @@ class App extends Component {
         </div>
         </header>
         <p/>
-        <CarData getCarData={this.getCarData}/>
         <div className="container">
           <div className="row">
             <div className="col-md-2"></div>
@@ -91,10 +107,15 @@ class App extends Component {
           <div className="row">
             <div className="col-md-2"></div>
             <div className="col-md-8">
-              <Questions getAnswers={this.getAnswers}/>
-              <Match getResults={this.getResults}/>
-              <RecPage />
-              </div>
+            <Switch>
+              <Route exact path='/' render={() => (
+                <Questions getAnswers={this.getAnswers}/>
+                  )}/>
+              <Route exact path='/results' render={() => (
+                <RecPage showResults={this.showResults} props={this.props} state={this.props.state}/>
+                  )}/>
+            </Switch>
+            </div>
             <div className="col-md-2"></div>
           </div>
         </div>

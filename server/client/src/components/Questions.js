@@ -88,12 +88,14 @@ class Questions extends React.Component {
   handleSubmission = () => {
     const currentState = this.state;
     this.props.getAnswers(currentState);
-  }
+    }
+
+  //TODO add an unmount lifecycle to remove the questions after submission
 
   render() {
 
     return (
-      <div className="Question-form">
+      <div ref="questions" className="Question-form">
         <b>What style of car do you drive now?</b>
         <Select value={this.selectedOption}  onChange={val => this.handleChange('bodyStyle', val)} options={bodyStyle} isSearchable={false}/>
         <p/>
