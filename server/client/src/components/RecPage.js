@@ -3,7 +3,8 @@ import React from 'react';
 const RecPage = (props) => (
   <div>
     <h1>RecPage stateless component</h1>
-    <h2>{JSON.stringify(props.results)}</h2>
+    <h2>{console.log(props)}</h2>
+    <h2>{console.log(props.results[0].data[0])}</h2>
   </div>
 )
 
