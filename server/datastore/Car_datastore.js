@@ -18,7 +18,23 @@ const MatchCar = function (query, request, response) {
   let parsedQuery = QS.parse(query);
   console.log(parsedQuery);
 
-  return Car.find(parsedQuery).exec()
+  //parsedQuery looks like this:
+  // { budget: '10000',
+  // passengers: '2',
+  // bodyStyle: 'sedan',
+  // reason: 'cheaper',
+  // manual: 'false',
+  // swagger: 'false',
+  // prius: 'false',
+  // commute: '10',
+  // onlyCar: 'false',
+  // diy: 'false' }
+
+  //now turn those parameters into a search
+  Car.find({parsedQuery}).toArray(function(err, docs)) {
+    assert.equal(err, null);
+    return docs;
+  }
 }
 
   // return Car.find({

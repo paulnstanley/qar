@@ -44,7 +44,7 @@ class App extends Component {
     let apiUrl = '/api/cars/'
 
     //now turn the answers array into a querystring
-    let queryString = Object.keys(answers).map(key => "?" + key + '=' + answers[key]).join('&');
+    let queryString = Object.keys(answers).map(key => key + '=' + answers[key]).join('&');
     console.log(queryString);
 
     let queryUrl = rootUrl + apiUrl + queryString
