@@ -31,15 +31,15 @@ const MatchCar = function (query, request, response) {
   // diy: 'false' }
 
   //now turn those parameters into a search
-  Car.find({parsedQuery}).toArray(function(err, docs) {
-    assert.equal(err, null);
-    return docs;
-  });
+  // Car.find({parsedQuery}).toArray(function(err, docs) {
+  //   assert.equal(err, null);
+  //   return docs;
+  // });
+  return Car.find({
+    parsedQuery
+  })
 }
 
-  // return Car.find({
-  //   'make': query
-  // })
 
 const AddNewCar = function (carModel) {
   const car = new Car({
