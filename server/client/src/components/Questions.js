@@ -39,8 +39,8 @@ const factors = [
 ]
 
 const prius = [
-  { value: false, label: `No, I'm open to other hybrids, plug-ins, or gas-powered cars.`},
-  { value: true, label: 'Yep, how did you know?'}
+  { value: 0, label: `No, I'm open to other hybrids, plug-ins, or gas-powered cars.`},
+  { value: 1, label: 'Yep, how did you know?'}
 ]
 
 
