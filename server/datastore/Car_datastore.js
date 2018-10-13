@@ -15,12 +15,10 @@ const MatchCar = function (query, request, response) {
   console.log('200: Finding matching car.');
   console.log(query)
 
-  let parsedQuery = MongoQS.parse(query.params);
+  let parsedQuery = MongoQS.parse(query);
   console.log(parsedQuery)
 
-  Car.find(parsedQuery, field).toArray(function(err, documents)) {
-
-  }
+  Car.find(parsedQuery).exec()
 }
 
   // return Car.find({

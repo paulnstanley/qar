@@ -49,7 +49,7 @@ class App extends Component {
 
     let queryUrl = rootUrl + apiUrl + queryString
     console.log(queryUrl);
-    // this.getCar(queryUrl);
+    this.getCar(queryUrl);
   }
 
 //do the db lookup
