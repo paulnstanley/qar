@@ -19,16 +19,11 @@ const MatchCar = function (query, request, response) {
   console.log(parsedQuery);
 
   //parsedQuery looks like this:
-  // { budget: '10000',
-  // passengers: '2',
-  // bodyStyle: 'sedan',
-  // reason: 'cheaper',
-  // manual: 'false',
-  // swagger: 'false',
-  // prius: 'false',
-  // commute: '10',
-  // onlyCar: 'false',
-  // diy: 'false' }
+  // { budget: 15000
+    // commute: 30
+    // factors: "reliability"
+    // passengers: 5
+    // prius: true }
 
   //now turn those parameters into a search
   // Car.find({parsedQuery}).toArray(function(err, docs) {
@@ -37,13 +32,10 @@ const MatchCar = function (query, request, response) {
   // });
   return Car.find({}).
     where('avgCost').lt(parsedQuery.budget).
-    where('avgCost').gt(parsedQuery.budget - 5000);
-    where('familySize').gt(parsedQuery.passengers);
-    //where('bodyStyle')
-    //where('reason')
-    //where('availableManual')
+    where('avgCost').gt(parsedQuery.budget - 5000).
+    where('familySize').equals(parsedQuery.passengers).
+    sort(parsedQuery.totalScore + (parsedQuery.factors*2) + (parsedQuery.prius*2));
 }
-
 
 const AddNewCar = function (carModel) {
   const car = new Car({
@@ -67,6 +59,8 @@ const AddNewCar = function (carModel) {
     swagger: carModel.swagger,
     technology: carModel.technology,
     availableManual: carModel.availableManual,
+    totalScore: carModel.totalScore,
+    prius: carModel.prius,
     comments: carModel.comments
   });
 

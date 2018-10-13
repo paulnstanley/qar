@@ -21,7 +21,9 @@ const CarSchema = new Schema({
   totalCostOwnership: Number,
   swagger: Number,
   technology: Number,
-  availableManual: Boolean,
+  availableManual: Number,
+  totalScore: Number,
+  prius: Number,
   comments: String
 });
 

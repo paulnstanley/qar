@@ -35,6 +35,8 @@ carRouter.post('/api/cars/new', function (request, response) {
     swagger: request.body.swagger,
     technology: request.body.technology,
     availableManual: request.body.availableManual,
+    totalScore: request.body.totalScore,
+    prius: request.body.prius,
     comments: request.body.comments
   }
   carData.AddNewCar(carModel);

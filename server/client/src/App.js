@@ -23,6 +23,15 @@ class App extends Component {
     this.getCar = this.getCar.bind(this)
   }
 
+//How to reset state when using the link?
+  // componentWillMount() {
+  //   this.initialState = this.state
+  // }
+  //
+  // componentDidMount() {
+  //   this.setState(this.initialState);
+  // }
+
 //Take the answers from questions.js, add them to state.answers
 //Submission in SetState can be replaced with a make
   getAnswers(submission) {
