@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const MongoQS = require('mongo-querystring');
 const Car = require ('../models/Car.js');
 
 const GetAllCars = function () {
@@ -6,21 +7,25 @@ const GetAllCars = function () {
   return Car.find({}).exec();
 }
 
+//example query: ?budget=10000&?passengers=2&?bodyStyle=sedan&?reason=cheaper&?manual=false&
+//?swagger=false&?prius=false&?commute=10&?onlyCar=false&?diy=false
+
+//process the search request here
 const MatchCar = function (query, request, response) {
   console.log('200: Finding matching car.');
-  return Car.find({
-    'make': query
-  }, function(err, result) {
-  		if (err) throw err;
-  		if (result) {
-  			response.json(result)
-  		} else {
-  			response.send(JSON.stringify({
-  				error : 'Error'
-			}))
-		}
-	})
+  console.log(query)
+
+  let parsedQuery = MongoQS.parse(query.params);
+  console.log(parsedQuery)
+
+  Car.find(parsedQuery, field).toArray(function(err, documents)) {
+
+  }
 }
+
+  // return Car.find({
+  //   'make': query
+  // })
 
 const AddNewCar = function (carModel) {
   const car = new Car({

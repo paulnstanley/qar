@@ -10,7 +10,6 @@ carRouter.get('/api/cars/all', function (request, response) {
 
 carRouter.get('/api/cars/:query', function (request, response) {
   let query = request.params.query;
-
   carData.MatchCar(query, request, response).then(foundMatch => response.json(foundMatch));
 })
 

@@ -31,21 +31,25 @@ class App extends Component {
       //   alert(`You didn't answer any questions!`)
       // } else {
         // console.log('Answers submitted.');
-        console.log('Answers submitted: ', this.state.answers);
+        // console.log('Answers submitted: ', this.state.answers);
         this.matchUserToCar(this.state.answers[0]);
       })
     }
 
 //take the answers from state and turn them into a search
-//this is where logic should be built
+//this sends them to the db, and the db does the logic
   matchUserToCar(answers) {
     console.log('Beginning match with: ', answers);
-
     let rootUrl = 'https://qar-project.herokuapp.com'
     let apiUrl = '/api/cars/'
-    let queryUrl = rootUrl + apiUrl + answers
 
-    this.getCar(queryUrl);
+    //now turn the answers array into a querystring
+    let queryString = Object.keys(answers).map(key => "?" + key + '=' + answers[key]).join('&');
+    console.log(queryString);
+
+    let queryUrl = rootUrl + apiUrl + queryString
+    console.log(queryUrl);
+    // this.getCar(queryUrl);
   }
 
 //do the db lookup
