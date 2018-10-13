@@ -31,10 +31,10 @@ const MatchCar = function (query, request, response) {
   // diy: 'false' }
 
   //now turn those parameters into a search
-  Car.find({parsedQuery}).toArray(function(err, docs)) {
+  Car.find({parsedQuery}).toArray(function(err, docs) {
     assert.equal(err, null);
     return docs;
-  }
+  });
 }
 
   // return Car.find({
