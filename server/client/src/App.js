@@ -23,30 +23,36 @@ class App extends Component {
     this.getCar = this.getCar.bind(this)
   }
 
-//replace hardcoded query with 'submission'
+//Take the answers from questions.js, add them to state.answers
+//Submission in SetState can be replaced with a make
   getAnswers(submission) {
-    this.setState({answers: this.state.answers.concat(['Acura'])}, () => {
-      console.log('Answers submitted.');
-      // console.log('Answers submitted: ', this.state.answers);
-      this.matchUserToCar(this.state.answers[0]);
-    })
-  }
+    this.setState({answers: this.state.answers.concat([submission])}, () => {
+      // if (!this.state.answers[0].data) {
+      //   alert(`You didn't answer any questions!`)
+      // } else {
+        // console.log('Answers submitted.');
+        console.log('Answers submitted: ', this.state.answers);
+        this.matchUserToCar(this.state.answers[0]);
+      })
+    }
 
-//take the answers from the user and turn them into a search
-  matchUserToCar(query) {
-    console.log('Beginning match with: ', query);
+//take the answers from state and turn them into a search
+//this is where logic should be built
+  matchUserToCar(answers) {
+    console.log('Beginning match with: ', answers);
 
     let rootUrl = 'https://qar-project.herokuapp.com'
     let apiUrl = '/api/cars/'
-    let fullUrl = rootUrl + apiUrl + query
+    let queryUrl = rootUrl + apiUrl + answers
 
-    this.getCar(fullUrl);
+    this.getCar(queryUrl);
   }
 
 //do the db lookup
 //redirect to /results with state
-  getCar(fullUrl) {
-    axios.get(fullUrl)
+//RecPage.js will render the results of the first (and ideally only) object in the response array
+  getCar(queryUrl) {
+    axios.get(queryUrl)
       .then((response) => {
         this.setState({results: this.state.results.concat([response])}, () => {
            this.props.history.push("/results");

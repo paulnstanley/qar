@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 //create vars and text for each property of the car
 const RecPage = (props) => {
@@ -16,11 +17,14 @@ const RecPage = (props) => {
               <p/>
               <h1>Your results:</h1>
               <h2>{minYear} {make} {model}</h2>
+              <p/>
             </div>
+            <Link to='/'>Start Over</Link>
           </div>
         <div className="col-md-2"></div>
       </div>
     </div>
+
   )
 }
 
