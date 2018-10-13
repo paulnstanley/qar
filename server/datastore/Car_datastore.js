@@ -36,7 +36,12 @@ const MatchCar = function (query, request, response) {
   //   return docs;
   // });
   return Car.find({}).
-    where('avgCost').lt(parsedQuery.budget);
+    where('avgCost').lt(parsedQuery.budget).
+    where('avgCost').gt(parsedQuery.budget - 5000);
+    where('familySize').gt(parsedQuery.passengers);
+    //where('bodyStyle')
+    //where('reason')
+    //where('availableManual')
 }
 
 
