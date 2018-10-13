@@ -30,11 +30,14 @@ const MatchCar = function (query, request, response) {
   //   assert.equal(err, null);
   //   return docs;
   // });
+
+  let factor = parsedQuery.factors;
+
   return Car.find({}).
     where('avgCost').lt(parsedQuery.budget).
     where('avgCost').gt(parsedQuery.budget - 5000).
     where('familySize').equals(parsedQuery.passengers).
-    sort(parsedQuery.totalScore + (parsedQuery.(parsedQuery.factors)*2) + (parsedQuery.prius*3));
+    sort('totalScore' + (factor*2) + ('prius'*10));
 }
 
 const AddNewCar = function (carModel) {
