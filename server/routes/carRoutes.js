@@ -1,6 +1,6 @@
 const _ = require('lodash');
 const { URL } = require('url');
-const MongoQS = require('mongo-querystring');
+const QS = require('querystring');
 const carData = require('../datastore/Car_datastore.js');
 const carRouter = require('express').Router();
 
