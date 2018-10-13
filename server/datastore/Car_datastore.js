@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const MongoQS = require('mongo-querystring');
+const QS = require('querystring');
 const Car = require ('../models/Car.js');
 
 const GetAllCars = function () {
@@ -13,12 +13,12 @@ const GetAllCars = function () {
 //process the search request here
 const MatchCar = function (query, request, response) {
   console.log('200: Finding matching car.');
-  console.log(query)
+  console.log(query);
 
-  let parsedQuery = MongoQS.parse(query);
-  console.log(parsedQuery)
+  let parsedQuery = QS.parse(query);
+  console.log(parsedQuery);
 
-  Car.find(parsedQuery).exec()
+  return Car.find(parsedQuery).exec()
 }
 
   // return Car.find({
