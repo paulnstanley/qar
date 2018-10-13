@@ -35,9 +35,8 @@ const MatchCar = function (query, request, response) {
   //   assert.equal(err, null);
   //   return docs;
   // });
-  return Car.findOne({
-    parsedQuery
-  })
+  return Car.find({}).
+    where('budget').lt(parsedQuery.budget);
 }
 
 
