@@ -38,7 +38,7 @@ carRouter.post('/api/cars/new', function (request, response) {
     totalScore: request.body.totalScore,
     prius: request.body.prius,
     comments: request.body.comments,
-    comments: request.body.image
+    image: request.body.image
 
   }
   carData.AddNewCar(carModel);
