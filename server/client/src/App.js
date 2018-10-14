@@ -43,7 +43,6 @@ class App extends Component {
     console.log(queryString);
 
     let queryUrl = rootUrl + apiUrl + queryString
-    console.log(queryUrl);
     this.getCar(queryUrl, answers);
   }
 
