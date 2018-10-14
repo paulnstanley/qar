@@ -54,7 +54,7 @@ const RecPage = (props) => {
           <div className="col-md-2"></div>
         </div>
       </div>)
-  } else {
+  }
 
   const make = props.results[0].data[0].make;
   const model = props.results[0].data[0].model;
@@ -147,6 +147,5 @@ const RecPage = (props) => {
     </div>
     )
   }
-}
 
 export default RecPage;
