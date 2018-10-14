@@ -12,8 +12,8 @@ const budget = [
 
 const passengers = [
   { value: 2, label: '1-2'},
-  { value: 5, label: '3-5'},
-  { value: 7, label: '6-7'},
+  { value: 4, label: '3-4'},
+  { value: 7, label: '5-7'},
   { value: 8, label: '8'}
 ]
 
