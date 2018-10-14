@@ -31,11 +31,8 @@ const MatchCar = function (query, request, response) {
   //   return docs;
   // });
 
-  let factor = parsedQuery.factors;
   let prius = parsedQuery.prius;
-
-  var sortFactor = {};
-  sortFactor[factor] = -1;
+  let factor = parsedQuery.factors;
 
   let dbQuery;
 
