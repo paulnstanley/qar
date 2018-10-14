@@ -33,10 +33,16 @@ const MatchCar = function (query, request, response) {
 
   let factor = parsedQuery.factors;
 
+  if (parsedQuery.prius === 1) {
+    return Car.find({}).
+    where('model').equals('Prius Four');
+  }
+
   return Car.find({}).
     where('avgCost').lt(parsedQuery.budget).
-    where('avgCost').gt(parsedQuery.budget - 10000).
-    where('familySize').equals(parsedQuery.passengers).
+    where('avgCost').gt(parsedQuery.budget - 5000).
+    where('familySize').gt(parsedQuery.passengers).
+    where('familySize').lt(parsedQuery.passengers + 2).
     sort('-totalScore');
 }
 
