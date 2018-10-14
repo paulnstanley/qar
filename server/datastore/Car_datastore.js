@@ -48,7 +48,9 @@ const MatchCar = function (query, request, response) {
     sort('-totalScore');
   }
 
-  dbQuery.exec();
+  dbQuery.exec((err, car) => {
+    return car;
+  });
 }
 
 const AddNewCar = function (carModel) {
