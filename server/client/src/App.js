@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route, withRouter} from 'react-router-dom'
 import axios from 'axios';
-import logo from './QarLogo.png';
+import textLogo from './QarTextLogo.png';
 import Questions from './components/Questions.js';
 import RecPage from './components/RecPage.js'
 import Craigslist from './components/Craigslist.js'
@@ -70,11 +70,9 @@ class App extends Component {
         <header className="App-header">
         <div className="container">
           <div className="row">
-            <div className="col-md-1">
-              <img src={logo} className="App-logo" alt="logo" />
-              </div>
+            <div className="col-md-1"></div>
             <div className="col-md-10">
-              <h1 className="App-title">Qar</h1>
+              <img src={textLogo} className="App-text-logo" alt="text-logo" />
               </div>
             <div className="col-md-1"></div>
           </div>
