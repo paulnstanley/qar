@@ -37,7 +37,9 @@ carRouter.post('/api/cars/new', function (request, response) {
     availableManual: request.body.availableManual,
     totalScore: request.body.totalScore,
     prius: request.body.prius,
-    comments: request.body.comments
+    comments: request.body.comments,
+    comments: request.body.image
+
   }
   carData.AddNewCar(carModel);
   response.end(console.log('200: New car added.'));

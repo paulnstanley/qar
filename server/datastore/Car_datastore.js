@@ -64,7 +64,8 @@ const AddNewCar = function (carModel) {
     availableManual: carModel.availableManual,
     totalScore: carModel.totalScore,
     prius: carModel.prius,
-    comments: carModel.comments
+    comments: carModel.comments,
+    image: carModel.image
   });
 
   return car.save();

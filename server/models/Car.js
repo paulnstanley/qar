@@ -24,7 +24,8 @@ const CarSchema = new Schema({
   availableManual: Number,
   totalScore: Number,
   prius: Number,
-  comments: String
+  comments: String,
+  image: String
 });
 
 module.exports = mongoose.model('Car', CarSchema)

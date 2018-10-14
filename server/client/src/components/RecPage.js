@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-const images = require('../images/')
+const baseImageUrl = '../images/';
 
 //create vars and text for each property of the car
 const RecPage = (props) => {
@@ -30,6 +30,7 @@ const RecPage = (props) => {
   const availableManual = props.results[0].data[0].availableManual;
   const totalScore = props.results[0].data[0].totalScore;
   const prius = props.results[0].data[0].prius;
+  const image = props.results[0].data[0].image;
 
   // this could be a way to show other cars that matched
   // const otherCars = function (props) {
@@ -42,6 +43,7 @@ const RecPage = (props) => {
   //   return moreResults;
   //   }
 
+// <img src={baseImageUrl + minYear + model +'.jpg'}/>
 
   return (
     <div className="container">
@@ -52,7 +54,8 @@ const RecPage = (props) => {
               <p/>
               <h1>Your results:</h1>
               <h2>{minYear} {make} {model}</h2>
-              <img src=images{minYear}{model}.jpg)}/>
+              <p/>
+              <img src={image}/>
               <p/>
             </div>
             <Link to='/'>Start Over</Link>
