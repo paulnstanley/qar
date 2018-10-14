@@ -37,14 +37,7 @@ const MatchCar = function (query, request, response) {
     where('avgCost').lt(parsedQuery.budget).
     where('avgCost').gt(parsedQuery.budget - 5000).
     where('familySize').equals(parsedQuery.passengers).
-    // sort('-totalScore'+ (factor*2) + ('prius'*10));
-    // sort('-totalScore');
-    where(function () {
-      let weightedScore;
-      weightedScore = (totalScore + (factor*2) + ('prius'*10));
-      return weightedScore
-    }).
-    sort('-weightedScore');
+    sort('-totalScore');
 }
 
 const AddNewCar = function (carModel) {

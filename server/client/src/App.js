@@ -64,6 +64,12 @@ class App extends Component {
 //do the db lookup
 //redirect to /results with state
 //RecPage.js will render the results of the first (and ideally only) object in the response array
+//add weighting logic here:
+
+//let weightedScore;
+//weightedScore = (totalScore + (factor*2) + ('prius'*10));
+//return weightedScore
+
   getCar(queryUrl) {
     axios.get(queryUrl)
       .then((response) => {
