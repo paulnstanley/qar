@@ -58,7 +58,7 @@ class App extends Component {
 
     let queryUrl = rootUrl + apiUrl + queryString
     console.log(queryUrl);
-    this.getCar(queryUrl);
+    this.getCar(queryUrl, answers);
   }
 
 //do the db lookup
@@ -70,7 +70,7 @@ class App extends Component {
 //weightedScore = (totalScore + (factor*2) + ('prius'*10));
 //return weightedScore
 
-  getCar(queryUrl) {
+  getCar(queryUrl, answers) {
     axios.get(queryUrl)
       .then((response) => {
         this.setState({results: this.state.results.concat([response])}, () => {
@@ -102,7 +102,7 @@ class App extends Component {
                 <Questions getAnswers={this.getAnswers} props={this.props}/>
                   )}/>
               <Route path='/results' render={() => (
-                <RecPage props={this.props} results={this.state.results}/>
+                <RecPage props={this.props} answers={this.state.answers} results={this.state.results}/>
                   )}/>
             </Switch>
             </div>

@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  animation: App-logo-spin infinite 15s linear;
   height: 35px;
 }
 
@@ -20,6 +20,15 @@
 
 .App-intro {
   font-size: large;
+}
+
+.carImage {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.manualImage {
+  max-width: 60px;
 }
 
 @keyframes App-logo-spin {

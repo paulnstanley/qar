@@ -1,14 +1,43 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-const baseImageUrl = '../images/';
+import manualYes from '../manualYes.jpg'
+import manualNo from '../manualNo.jpg'
 
 //create vars and text for each property of the car
 const RecPage = (props) => {
 
-  console.log(props.results);
+  const getCommute = function () {
+    let commute;
+    if (props.answers[0].commute) {
+      commute = props.answers[0].commute;
+      console.log(commute);
+      return commute;
+    } else {
+      return 0;
+    }
+  }
 
-  const numResults = props.results.length;
+  const calculateCommute = function () {
+    let octane87 = 2.49;
+    let octane93 = 3.29;
+    let octane0 = 0.11;
+    let selectedOctane;
+
+    if (props.results[0].data[0].fuelOctane === 87 ) {
+      selectedOctane = octane87;
+    } else if (props.results[0].data[0].fuelOctane === 93) {
+        selectedOctane = octane93;
+    } else {
+      selectedOctane = octane0;
+    }
+
+    let totalCost = selectedOctane * (props.answers[0].commute / props.results[0].data[0].cityMpg);
+    return totalCost.toFixed(2);
+  }
+
+  // const numResults = props.results.length;
 
   const make = props.results[0].data[0].make;
   const model = props.results[0].data[0].model;
@@ -30,20 +59,20 @@ const RecPage = (props) => {
   const availableManual = props.results[0].data[0].availableManual;
   const totalScore = props.results[0].data[0].totalScore;
   const prius = props.results[0].data[0].prius;
+  const comments = props.results[0].data[0].comments;
   const image = props.results[0].data[0].image;
 
-  // this could be a way to show other cars that matched
-  // const otherCars = function (props) {
-  //   let moreResults = [];
-  //   for (let i=0; i<numResults; i++) {
-  //       moreResults.push(props.results[i].data[0].make);
-  //       moreResults.push(props.results[i].data[0].model);
-  //       moreResults.push(props.results[i].data[0].minYear);
-  //     }
-  //   return moreResults;
-  //   }
+  const isManual = function () {
+    if (availableManual === 1) {
+      return manualYes;
+    } else {
+      return manualNo;
+    }
+  }
 
-// <img src={baseImageUrl + minYear + model +'.jpg'}/>
+  const refreshPage = function (){
+    window.location.reload();
+  }
 
   return (
     <div className="container">
@@ -52,18 +81,52 @@ const RecPage = (props) => {
           <div className="col-md-8">
             <div className='results'>
               <p/>
-              <h1>Your results:</h1>
-              <h2>{minYear} {make} {model}</h2>
+              <h1>Consider a </h1>
+              <h2>{minYear} - {maxYear} {make} {model}</h2>
               <p/>
-              <img src={image}/>
+              <img className="carImage" src={image}/>
               <p/>
+              <div className="container">
+                <div className="row">
+                  <div className='cost col-md-1'></div>
+                  <div className='cost col-md-2'>
+                    <h4>Typical Price</h4>
+                    <h6>${avgCost}</h6>
+                  </div>
+                  <div className='manual col-md-2'>
+                    <h4>Manual?</h4>
+                    <h6><img className="manualImage" src={isManual()}/></h6>
+                  </div>
+                  <div className='fuel col-md-2'>
+                    <h4>Fuel Economy</h4>
+                    <h6>City: {cityMpg}</h6>
+                    <h6>Highway: {hwyMpg}</h6>
+                    <h6>Octane: {fuelOctane}</h6>
+                  </div>
+                  <div className='commute col-md-4'>
+                    <h4>Commute</h4>
+                    <h6>If roundtrip is {getCommute()} miles, then your cost estimate is: </h6>
+                    <h5>${calculateCommute()} per day</h5>
+                  </div>
+                </div>
+              </div>
+              <div className="container">
+                <div className="row">
+                    <div className="col-md-12">
+                    <p/>
+                    <p/>
+                    <h4>Qar's notes:</h4>
+                    <p className="comments">{comments}
+                    </p>
+                    </div>
+                </div>
+              </div>
             </div>
-            <Link to='/'>Start Over</Link>
+            <Link onClick={refreshPage} to='/'>Start Over</Link>
           </div>
         <div className="col-md-2"></div>
       </div>
     </div>
-
   )
 }
 
