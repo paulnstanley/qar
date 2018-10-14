@@ -1,6 +1,5 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-const craigslist = require('node-craigslist');
 
 //create vars and text for each property of the car
 const Craigslist = (props) => {
@@ -18,44 +17,39 @@ const Craigslist = (props) => {
   const maxBudget = props.answers[0].budget;
   const minBudget = (maxBudget - 10000);
 
-  const client = new craigslist.Client({
-    baseHost: 'craigslist.com',
-    city: 'raleigh'
-  });
 
-  const options = {
-    category: 'cta',
-    maxAsk: maxBudget,
-    minAsk: minBudget
+  const urlBase = 'https://'
+  const city = 'raleigh';
+  const baseHost = '.craigslist.org/';
+  const searchUrl = 'search/';
+  const category = 'cta?';
+  const maxYearUrl = 'max_auto_year='
+  const maxPriceUrl = '&max_price='
+  const minYearUrl = '&min_auto_year='
+  const minPriceUrl = '&min_price='
+  const queryUrl = '&query='
+  const sortUrl = '&sort=rel'
+
+  const fullUrl = urlBase + city + baseHost + searchUrl + category + maxYearUrl + maxYear + maxPriceUrl +
+    maxBudget + minYearUrl + minYear + minPriceUrl + minBudget + queryUrl + make + '%20' + model +
+    sortUrl;
+
+  console.log(fullUrl);
+
   }
 
-  const search = function () {
-    client
-    .search(make + '' + model)
-    .then((listings) => {
-      // play with listings here...
-      listings.forEach((listing) => {
-          return listing
-        })
-      })
-    // .catch((err) => {
-    //   console.error(err);
-    // });
-  }
 
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-2"></div>
           <div className="col-md-8">
-            <h4>Local Craigslist Results</h4>
-            {search()}
+            <h4><a href={fullUrl}>See Craigslist Results</a></h4>
           </div>
         <div className="col-md-2"></div>
       </div>
     </div>
     )
   }
-}
 
 export default Craigslist;
