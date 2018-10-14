@@ -34,7 +34,7 @@ const MatchCar = function (query, request, response) {
   let factor = parsedQuery.factors;
   let prius = parsedQuery.prius;
 
-  if (prius === 1) {
+  if (prius == 1) {
     return Car.find({}).
     where('model').equals('Prius Four');
   }
