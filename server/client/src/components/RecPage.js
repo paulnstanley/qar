@@ -49,7 +49,7 @@ const RecPage = (props) => {
           <div className="col-md-2"></div>
             <div className="col-md-8">
             <h4>No results for your search, or you refreshed the results page.</h4>
-            <Link onClick={refreshPage} to='/'>Start over!</Link>
+            <Link onClick={refreshPage} to='/'>Start Over</Link>
           </div>
           <div className="col-md-2"></div>
         </div>
@@ -98,6 +98,8 @@ const RecPage = (props) => {
           <div className="col-md-8">
             <div className='results'>
               <p/>
+              <Link onClick={refreshPage} to='/'>Start Over</Link>
+              <p/>
               <h1>Consider a </h1>
               <h2>{minYear} - {maxYear} {make} {model}</h2>
               <p/>
@@ -139,7 +141,6 @@ const RecPage = (props) => {
                 </div>
               </div>
             </div>
-            <Link onClick={refreshPage} to='/'>Start Over</Link>
           </div>
         <div className="col-md-2"></div>
       </div>

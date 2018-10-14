@@ -4,6 +4,7 @@ import axios from 'axios';
 import logo from './QarLogo.png';
 import Questions from './components/Questions.js';
 import RecPage from './components/RecPage.js'
+import Craigslist from './components/Craigslist.js'
 // import CarData from './components/CarData.js';
 // import Match from './components/Match.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -86,7 +87,11 @@ class App extends Component {
                 <Questions getAnswers={this.getAnswers} props={this.props}/>
                   )}/>
               <Route path='/results' render={() => (
-                <RecPage props={this.props} answers={this.state.answers} results={this.state.results}/>
+                <div>
+                  <RecPage props={this.props} answers={this.state.answers} results={this.state.results}/>
+                  <p/>
+                  <Craigslist props={this.props} answers={this.state.answers} results={this.state.results}/>
+                </div>
                   )}/>
             </Switch>
             </div>
