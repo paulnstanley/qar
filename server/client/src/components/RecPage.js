@@ -38,6 +38,24 @@ const RecPage = (props) => {
     return totalCost.toFixed(2);
   }
 
+  const refreshPage = function (){
+    window.location.reload();
+  }
+
+  if(!props.results || props.results.length<1 || props.results[0].data.length<1) {
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col-md-2"></div>
+            <div className="col-md-8">
+            <h4>No results for your search, or you refreshed the results page.</h4>
+            <Link onClick={refreshPage} to='/'>Start over!</Link>
+          </div>
+          <div className="col-md-2"></div>
+        </div>
+      </div>)
+  } else {
+
   const make = props.results[0].data[0].make;
   const model = props.results[0].data[0].model;
   const minYear = props.results[0].data[0].minYear;
@@ -72,9 +90,6 @@ const RecPage = (props) => {
   }
 
 //force refresh when using the "start over" link
-  const refreshPage = function (){
-    window.location.reload();
-  }
 
   return (
     <div className="container">
@@ -129,7 +144,8 @@ const RecPage = (props) => {
         <div className="col-md-2"></div>
       </div>
     </div>
-  )
+    )
+  }
 }
 
 export default RecPage;
