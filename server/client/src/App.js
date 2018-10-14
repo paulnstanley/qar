@@ -23,30 +23,15 @@ class App extends Component {
     this.getCar = this.getCar.bind(this)
   }
 
-//How to reset state when using the link?
-  // componentWillMount() {
-  //   this.initialState = this.state
-  // }
-  //
-  // componentDidMount() {
-  //   this.setState(this.initialState);
-  // }
-
 //Take the answers from questions.js, add them to state.answers
-//Submission in SetState can be replaced with a make
   getAnswers(submission) {
     this.setState({answers: this.state.answers.concat([submission])}, () => {
-      // if (!this.state.answers[0].data) {
-      //   alert(`You didn't answer any questions!`)
-      // } else {
-        // console.log('Answers submitted.');
-        // console.log('Answers submitted: ', this.state.answers);
         this.matchUserToCar(this.state.answers[0]);
-      })
-    }
+    })
+  }
 
 //take the answers from state and turn them into a search
-//this sends them to the db, and the db does the logic
+//this sends them to the db, and the db does the query
   matchUserToCar(answers) {
     console.log('Beginning match with: ', answers);
     let rootUrl = 'https://qar-project.herokuapp.com'
@@ -61,15 +46,14 @@ class App extends Component {
     this.getCar(queryUrl, answers);
   }
 
-//do the db lookup
-//redirect to /results with state
-//RecPage.js will render the results of the first (and ideally only) object in the response array
-//add weighting logic here:
-
+//TODO: add weighting logic within getCar to reorder the array of results?
 //let weightedScore;
 //weightedScore = (totalScore + (factor*2) + ('prius'*10));
 //return weightedScore
 
+//do the db lookup
+//redirect to /results with state
+//RecPage.js will render the results of the first (and ideally only) object in the response array
   getCar(queryUrl, answers) {
     axios.get(queryUrl)
       .then((response) => {

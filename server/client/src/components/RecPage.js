@@ -19,6 +19,7 @@ const RecPage = (props) => {
     }
   }
 
+//calculate the cost of their commute based on fuel prices, roundtrip distance, mpgs
   const calculateCommute = function () {
     let octane87 = 2.49;
     let octane93 = 3.29;
@@ -36,8 +37,6 @@ const RecPage = (props) => {
     let totalCost = selectedOctane * (props.answers[0].commute / props.results[0].data[0].cityMpg);
     return totalCost.toFixed(2);
   }
-
-  // const numResults = props.results.length;
 
   const make = props.results[0].data[0].make;
   const model = props.results[0].data[0].model;
@@ -62,6 +61,8 @@ const RecPage = (props) => {
   const comments = props.results[0].data[0].comments;
   const image = props.results[0].data[0].image;
 
+
+//show whether or not this car can be had with a manual
   const isManual = function () {
     if (availableManual === 1) {
       return manualYes;
@@ -70,6 +71,7 @@ const RecPage = (props) => {
     }
   }
 
+//force refresh when using the "start over" link
   const refreshPage = function (){
     window.location.reload();
   }
