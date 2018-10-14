@@ -37,9 +37,8 @@ const MatchCar = function (query, request, response) {
   let dbQuery;
 
   if (prius == 1) {
-    dbQuery = Car.find({}).
-    where('model').equals('Prius Four');
-    console.log('prius')
+      dbQuery = Car.find({model: 'Prius Four'})
+      console.log('prius')
   } else {
     dbQuery = Car.find({}).
     where('avgCost').lt(parsedQuery.budget).
