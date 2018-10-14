@@ -44,7 +44,7 @@ const MatchCar = function (query, request, response) {
     where('avgCost').gte(parsedQuery.budget - 5000).
     where('familySize').gte(parsedQuery.passengers).
     where('familySize').lte(parsedQuery.passengers + 2).
-    sort(-factor);
+    sort({[factor]: -1});
   } else {
     dbQuery = Car.find({}).
     where('avgCost').lte(parsedQuery.budget).
