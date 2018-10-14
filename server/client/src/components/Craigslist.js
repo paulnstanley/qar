@@ -8,7 +8,7 @@ const Craigslist = (props) => {
     return (
       <div>
       </div>)
-  } else {
+  }
 
   const make = props.results[0].data[0].make;
   const model = props.results[0].data[0].model;
@@ -33,10 +33,6 @@ const Craigslist = (props) => {
   const fullUrl = urlBase + city + baseHost + searchUrl + category + maxYearUrl + maxYear + maxPriceUrl +
     maxBudget + minYearUrl + minYear + minPriceUrl + minBudget + queryUrl + make + '%20' + model +
     sortUrl;
-
-  console.log(fullUrl);
-
-  }
 
 
   return (
