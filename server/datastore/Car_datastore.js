@@ -33,7 +33,7 @@ const MatchCar = function (query, request, response) {
 
   let prius = parsedQuery.prius;
   let factor = parsedQuery.factor;
-  let sortByFactor = {"parsedQuery.factors": 'desc'};
+  let sortByFactor = {parsedQuery.factors: 'desc'};
   console.log(sortByFactor);
 
   let dbQuery;
