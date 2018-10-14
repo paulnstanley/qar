@@ -41,10 +41,10 @@ const MatchCar = function (query, request, response) {
       console.log('prius')
   } else {
     dbQuery = Car.find({}).
-    where('avgCost').lt(parsedQuery.budget).
-    where('avgCost').gt(parsedQuery.budget - 5000).
-    where('familySize').gt(parsedQuery.passengers).
-    where('familySize').lt(parsedQuery.passengers + 2).
+    where('avgCost').lte(parsedQuery.budget).
+    where('avgCost').gte(parsedQuery.budget - 5000).
+    where('familySize').gte(parsedQuery.passengers).
+    where('familySize').lte(parsedQuery.passengers + 2).
     sort('-totalScore');
     console.log('not prius')
   }
