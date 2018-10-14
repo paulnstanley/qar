@@ -34,13 +34,13 @@ const MatchCar = function (query, request, response) {
   let factor = parsedQuery.factors;
   let prius = parsedQuery.prius;
 
-  let query;
+  let dbQuery;
 
   if (prius == 1) {
-    query = Car.find({}).
+    dbQuery = Car.find({}).
     where('model').equals('Prius Four');
   } else {
-    query = Car.find({}).
+    dbQuery = Car.find({}).
     where('avgCost').lt(parsedQuery.budget).
     where('avgCost').gt(parsedQuery.budget - 5000).
     where('familySize').gt(parsedQuery.passengers).
@@ -48,7 +48,7 @@ const MatchCar = function (query, request, response) {
     sort('-totalScore');
   }
 
-  query.exec((err, car) => {
+  dbQuery.exec((err, car) => {
     response.json(car);
   });
 }
