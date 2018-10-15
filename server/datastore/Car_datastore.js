@@ -39,7 +39,7 @@ const MatchCar = function (query, request, response) {
   let factorObject = {};
   factorObject[factor] = -1;
   console.log(factorObject);
-  JSON.stringify(factorObject);
+  factorObject = JSON.stringify(factorObject);
   console.log(factorObject);
 
   let dbQuery;
