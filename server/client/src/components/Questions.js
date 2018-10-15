@@ -57,8 +57,8 @@ class Questions extends React.Component {
 
   //sends state (all dropdown selections) to app.js via props
   handleSubmission = () => {
-    if (!this.state.budget || !this.state.passengers || !this.state.commute) {
-      alert('You must at least select budget, passengers, and commute length.')
+    if (!this.state.budget || !this.state.passengers || !this.state.commute || !this.state.prius || !this.state.factors) {
+      alert('Please answer all questions.')
     } else {
       const currentState = this.state;
       this.props.getAnswers(currentState);
