@@ -33,7 +33,7 @@ const MatchCar = function (query, request, response) {
 
   let prius = parsedQuery.prius;
 
-  function getFactors = (parsedQuery) {
+  const getFactors = function (parsedQuery) {
     if (!parsedQuery.factors) {
     let factor = parsedQuery.factors;
     console.log(factor);
