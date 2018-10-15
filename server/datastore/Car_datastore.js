@@ -33,7 +33,9 @@ const MatchCar = function (query, request, response) {
 
   let prius = parsedQuery.prius;
 
-  let factor = parsedQuery.factors;
+  var factor = parsedQuery.factors,
+    obj = {[factor]: -1}
+
   console.log(factor);
   //
   // let factorObject = {};
@@ -52,7 +54,8 @@ const MatchCar = function (query, request, response) {
     where('avgCost').gte(parsedQuery.budget - 5000).
     where('familySize').gte(parsedQuery.passengers).
     where('familySize').lte(parsedQuery.passengers + 2).
-    sort('-totalScore -`${factor}`');
+    sort('-totalScore').
+    sort(`'-${factor}'`);
   }
 
   return dbQuery.exec();
