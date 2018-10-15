@@ -40,13 +40,14 @@ const MatchCar = function (query, request, response) {
     let factorObject = {};
     factorObject[factor] = -1;
     console.log(factorObject);
+    return factorObject;
   }
 
   let dbQuery;
 
   if (prius == 1) {
       dbQuery = Car.find({model: 'Prius Four'})
-  } else if (!factor) {
+  } else if (!factorObject) {
     dbQuery = Car.find({}).
     where('avgCost').lte(parsedQuery.budget).
     where('avgCost').gte(parsedQuery.budget - 5000).
