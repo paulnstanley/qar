@@ -31,6 +31,10 @@ class App extends Component {
     })
   }
 
+  logoRefresh() {
+    window.location.reload();
+  }
+
 //take the answers from state and turn them into a search
 //this sends them to the db, and the db does the query
   matchUserToCar(answers) {
@@ -71,7 +75,7 @@ class App extends Component {
           <div className="row">
             <div className="col-md-1"></div>
             <div className="col-md-10">
-              <img src={textLogo} className="App-text-logo" alt="text-logo" />
+              <img src={textLogo} onClick={this.logoRefresh} className="App-text-logo" alt="text-logo" />
               </div>
             <div className="col-md-1"></div>
           </div>

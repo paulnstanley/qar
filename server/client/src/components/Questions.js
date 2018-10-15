@@ -57,8 +57,10 @@ class Questions extends React.Component {
 
   //sends state (all dropdown selections) to app.js via props
   handleSubmission = () => {
-    if (!this.state.budget || !this.state.passengers || !this.state.commute || !this.state.prius || !this.state.factors) {
+    if (!this.state.budget || !this.state.passengers || !this.state.factors || (typeof this.state.prius != 'number') || !this.state.commute) {
+      console.log(this.state);
       alert('Please answer all questions.')
+      window.location.reload();
     } else {
       const currentState = this.state;
       this.props.getAnswers(currentState);
@@ -78,7 +80,7 @@ class Questions extends React.Component {
               New cars are expensive.  In 2018, the average new car and truck sale price was $36,270, with loans averaging six years.  Yikes!
               How about a nice used car, instead?<br/><br/>
 
-              Answer these questions to get a recommendation from a thoughtfully curated selection.
+              Answer all of the following questions to get a recommendation from a thoughtfully curated selection.
             </p>
 
             <div ref="questions" className="Question-form">
