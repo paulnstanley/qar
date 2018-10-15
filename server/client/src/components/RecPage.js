@@ -44,16 +44,12 @@ const RecPage = (props) => {
 
   if(!props.results || props.results.length<1 || props.results[0].data.length<1) {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-2"></div>
-            <div className="col-md-8">
-            <h4>No results for your search, or you refreshed the results page.</h4>
+        <div>
+            <div className="col-md-4"></div>
+            <h4>No results, or you refreshed the results page.</h4>
+            <p/>
             <Link onClick={refreshPage} to='/'>Start Over</Link>
-          </div>
-          <div className="col-md-2"></div>
-        </div>
-      </div>)
+        </div>)
   }
 
   const make = props.results[0].data[0].make;
@@ -105,45 +101,44 @@ const RecPage = (props) => {
               <p/>
               <img className="carImage" src={image}/>
               <p/>
-              <div className="container">
-                <div className="row">
-                  <div className='cost col-md-1'></div>
-                  <div className='cost col-md-2'>
-                    <h4>Typical Price</h4>
-                    <h6>${avgCost}</h6>
-                  </div>
-                  <div className='manual col-md-2'>
-                    <h4>Manual?</h4>
-                    <h6><img className="manualImage" src={isManual()}/></h6>
-                  </div>
-                  <div className='fuel col-md-2'>
-                    <h4>Fuel Economy</h4>
-                    <h6>City: {cityMpg}</h6>
-                    <h6>Highway: {hwyMpg}</h6>
-                    <h6>Octane: {fuelOctane}</h6>
-                  </div>
-                  <div className='commute col-md-4'>
-                    <h4>Commute</h4>
-                    <h6>If roundtrip is {getCommute()} miles, then your cost estimate is: </h6>
-                    <h5>${calculateCommute()} per day</h5>
-                  </div>
-                </div>
-              </div>
-              <div className="container">
-                <div className="row">
-                    <div className="col-md-12">
-                    <p/>
-                    <p/>
-                    <h4>Qar's notes:</h4>
-                    <p className="comments">{comments}
-                    </p>
-                    </div>
-                </div>
               </div>
             </div>
-          </div>
+          <div className="col-md-2"></div>
+      </div>
+      <div className="row">
+        <div className='cost col-md-1'></div>
+        <div className='cost col-md-2'>
+          <h4>Typical Price</h4>
+          <h6>${avgCost}</h6>
+        </div>
+        <div className='manual col-md-2'>
+          <h4>Manual?</h4>
+          <h6><img className="manualImage" src={isManual()}/></h6>
+        </div>
+        <div className='fuel col-md-2'>
+          <h4>Fuel Economy</h4>
+          <h6>City: {cityMpg}</h6>
+          <h6>Highway: {hwyMpg}</h6>
+          <h6>Octane: {fuelOctane}</h6>
+        </div>
+        <div className='commute col-md-4'>
+          <h4>Commute</h4>
+          <h6>If roundtrip is {getCommute()} miles, then your cost estimate is: </h6>
+          <h5>${calculateCommute()} per day</h5>
+        </div>
+    </div>
+      <div className="row">
+        <div className="col-md-2"></div>
+        <div className="col-md-8">
+        <p/>
+        <p/>
+        <h4>Qar's notes:</h4>
+        <p className="comments">{comments}
+        </p>
+        </div>
         <div className="col-md-2"></div>
       </div>
+      <div className="col-md-2"></div>
     </div>
     )
   }
