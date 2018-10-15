@@ -33,8 +33,9 @@ const MatchCar = function (query, request, response) {
 
   let prius = parsedQuery.prius;
 
-  var factor = parsedQuery.factors,
-    obj = {[factor]: -1}
+  var factor = {
+    [parsedQuery.factors]: -1
+  }
 
   console.log(factor);
   //
@@ -55,7 +56,7 @@ const MatchCar = function (query, request, response) {
     where('familySize').gte(parsedQuery.passengers).
     where('familySize').lte(parsedQuery.passengers + 2).
     sort('-totalScore').
-    sort(`'-${factor}'`);
+    sort(factor});
   }
 
   return dbQuery.exec();
