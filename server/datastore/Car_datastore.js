@@ -56,7 +56,7 @@ const MatchCar = function (query, request, response) {
     where('familySize').gte(parsedQuery.passengers).
     where('familySize').lte(parsedQuery.passengers + 2).
     sort('-totalScore').
-    sort(factor});
+    sort(factor);
   }
 
   return dbQuery.exec();
