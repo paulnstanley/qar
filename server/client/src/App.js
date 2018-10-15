@@ -89,9 +89,9 @@ class App extends Component {
                   )}/>
               <Route path='/results' render={() => (
                 <div>
-                  <RecPage props={this.props} answers={this.state.answers} results={this.state.results}/>
-                  <p/>
                   <Craigslist props={this.props} answers={this.state.answers} results={this.state.results}/>
+                  <p/>
+                  <RecPage props={this.props} answers={this.state.answers} results={this.state.results}/>
                 </div>
                   )}/>
             </Switch>
