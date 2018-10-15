@@ -52,8 +52,7 @@ const MatchCar = function (query, request, response) {
     where('avgCost').gte(parsedQuery.budget - 5000).
     where('familySize').gte(parsedQuery.passengers).
     where('familySize').lte(parsedQuery.passengers + 2).
-    sort('-totalScore').
-    sort(`-${factor}`);
+    sort(`-totalScore -${factor}`);
   }
 
   return dbQuery.exec();
